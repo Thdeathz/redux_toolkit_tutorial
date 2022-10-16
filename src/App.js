@@ -7,8 +7,6 @@ import EditPostForm from './features/posts/EditPostForm'
 import UsersList from './features/users/UsersList'
 import UserPage from './features/users/UserPage'
 import TodoList from './features/todos/TodoList'
-import { ApiProvider } from '@reduxjs/toolkit/query/react'
-import { apiSlice } from './features/api/apiSlice'
 
 function App() {
   return (
@@ -28,14 +26,7 @@ function App() {
         </Route>
 
         <Route path="todo">
-          <Route
-            index
-            element={
-              <ApiProvider api={apiSlice}>
-                <TodoList />
-              </ApiProvider>
-            }
-          />
+          <Route index element={<TodoList />} />
         </Route>
 
         <Route path="*" element={<Navigate to="/" replace />} />

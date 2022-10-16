@@ -3,7 +3,7 @@ import {
   useUpdateTodoMutation,
   useDeleteTodoMutation,
   useAddTodosMutation
-} from '../api/apiSlice'
+} from './todosSlice'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash, faUpload } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'

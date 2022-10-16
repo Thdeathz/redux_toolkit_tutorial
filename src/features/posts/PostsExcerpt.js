@@ -1,16 +1,16 @@
-import PostAuthor from "./PostAuthor";
-import ReactionButton from "./ReactionButton";
-import TimeAgo from "./TimeAgo";
-import { Link } from "react-router-dom";
+import PostAuthor from './PostAuthor'
+import ReactionButton from './ReactionButton'
+import TimeAgo from './TimeAgo'
+import { Link } from 'react-router-dom'
 
-import { useSelector } from "react-redux";
-import { selectPostById } from "./postsSlice";
+import { useSelector } from 'react-redux'
+import { selectPostById } from './postsSlice'
 
 const PostsExcerpt = ({ postId }) => {
-  const post = useSelector((state) => selectPostById(state, postId));
+  const post = useSelector(state => selectPostById(state, postId))
 
   return (
-    <article>
+    <article className="each-post">
       <h3>{post.title}</h3>
       <p>{post.body.substring(0, 75)}...</p>
       <p className="postCredit">
@@ -20,7 +20,7 @@ const PostsExcerpt = ({ postId }) => {
       </p>
       <ReactionButton post={post} />
     </article>
-  );
-};
+  )
+}
 
-export default PostsExcerpt;
+export default PostsExcerpt

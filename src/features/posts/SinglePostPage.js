@@ -1,25 +1,25 @@
-import { useSelector } from "react-redux";
-import { useParams, Link } from "react-router-dom";
-import { selectPostById } from "./postsSlice";
+import { useSelector } from 'react-redux'
+import { useParams, Link } from 'react-router-dom'
+import { selectPostById } from './postsSlice'
 
-import PostAuthor from "./PostAuthor";
-import TimeAgo from "./TimeAgo";
-import ReactionButton from "./ReactionButton";
+import PostAuthor from './PostAuthor'
+import TimeAgo from './TimeAgo'
+import ReactionButton from './ReactionButton'
 
 const SinglePostPage = () => {
-  const { postId } = useParams();
-  const post = useSelector((state) => selectPostById(state, Number(postId)));
+  const { postId } = useParams()
+  const post = useSelector(state => selectPostById(state, Number(postId)))
 
   if (!post) {
     return (
       <section>
         <h2>Post not found!</h2>
       </section>
-    );
+    )
   }
 
   return (
-    <article>
+    <article className="each-post">
       <h2>{post.title}</h2>
       <p>{post.body}</p>
       <p className="postCredit">
@@ -29,7 +29,7 @@ const SinglePostPage = () => {
       </p>
       <ReactionButton post={post} />
     </article>
-  );
-};
+  )
+}
 
-export default SinglePostPage;
+export default SinglePostPage

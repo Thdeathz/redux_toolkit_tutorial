@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { getCount, increaseCount } from "../features/posts/postsSlice";
+import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { getCount, increaseCount } from '../features/posts/postsSlice'
 
 const Header = () => {
-  const dispatch = useDispatch();
-  const count = useSelector(getCount);
+  const dispatch = useDispatch()
+  const count = useSelector(getCount)
 
   return (
     <header className="Header">
@@ -20,11 +20,14 @@ const Header = () => {
           <li>
             <Link to="user">Users</Link>
           </li>
+          <li>
+            <Link to="todo">Todo</Link>
+          </li>
           <button onClick={() => dispatch(increaseCount())}>{count}</button>
         </ul>
       </nav>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

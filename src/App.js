@@ -1,11 +1,14 @@
-import AddPostForm from "./features/posts/AddPostForm";
-import PostList from "./features/posts/PostsList";
-import Layout from "./components/Layout";
-import { Routes, Route, Navigate } from "react-router-dom";
-import SinglePostPage from "./features/posts/SinglePostPage";
-import EditPostForm from "./features/posts/EditPostForm";
-import UsersList from "./features/users/UsersList";
-import UserPage from "./features/users/UserPage";
+import AddPostForm from './features/posts/AddPostForm'
+import PostList from './features/posts/PostsList'
+import Layout from './components/Layout'
+import { Routes, Route, Navigate } from 'react-router-dom'
+import SinglePostPage from './features/posts/SinglePostPage'
+import EditPostForm from './features/posts/EditPostForm'
+import UsersList from './features/users/UsersList'
+import UserPage from './features/users/UserPage'
+import TodoList from './features/todos/TodoList'
+import { ApiProvider } from '@reduxjs/toolkit/query/react'
+import { apiSlice } from './features/api/apiSlice'
 
 function App() {
   return (
@@ -24,10 +27,21 @@ function App() {
           <Route path=":userId" element={<UserPage />} />
         </Route>
 
+        <Route path="todo">
+          <Route
+            index
+            element={
+              <ApiProvider api={apiSlice}>
+                <TodoList />
+              </ApiProvider>
+            }
+          />
+        </Route>
+
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>
-  );
+  )
 }
 
-export default App;
+export default App
